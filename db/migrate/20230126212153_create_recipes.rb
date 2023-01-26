@@ -5,10 +5,12 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.text :ingredients
       t.text :directions
       t.string :category
-      t.references :user_id, null: false, foreign_key: true
-      t.references :meal_plan_id, null: false, foreign_key: true
+      t.integer :user_id
+      t.integer :meal_plan_id
 
       t.timestamps
     end
+    # add_foreign_key :recipes, :users, column: user_id
+    # add_foreign_key :recipes, :meal_plans, column: meal_plan_id
   end
 end
